@@ -1,0 +1,99 @@
+<aside class="bg-blue-600 text-white w-full h-screen flex flex-col">
+  <!-- Header -->
+  <div class="p-4 text-center border-b border-blue-500">
+    <h2 class="text-2xl font-bold">Menu</h2>
+  </div>
+
+  <!-- Menu Utama -->
+  <ul class="flex flex-col p-4 space-y-2 flex-1">
+    <!-- Dashboard -->
+    <li>
+      <a href="{% url 'dashboard' %}" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition {% if request.resolver_match.view_name == 'dashboard' %}bg-blue-700{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10h3m10-11l2 2m-2-2v10h-3"/>
+        </svg>
+        Dashboard
+      </a>
+    </li>
+
+    <!-- Input Data -->
+    <li>
+      <a href="{% url 'input.index' %}" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition {% if request.resolver_match.view_name == 'input.index' %}bg-blue-700{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5h2m-1 0v14m9-9H5"/>
+        </svg>
+        Input Data
+      </a>
+    </li>
+
+    <!-- Preprocessing -->
+    <li>
+      <a href="{% url 'preprocessing.index' %}" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition {% if request.resolver_match.view_name == 'preprocessing.index' %}bg-blue-700{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 11-4 0 2 2 0 014 0zm0 6v10m0-6a2 2 0 11-4 0 2 2 0 014 0zm6-6h2m-2 0a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        Preprocessing
+      </a>
+    </li>
+
+    <!-- Stopwords -->
+    <li>
+      <a href="#" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition {% if request.resolver_match.view_name == 'stopwords.index' %}bg-blue-700{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+        Stopwords
+      </a>
+    </li>
+
+    <!-- Slangwords -->
+    <li>
+      <a href="#" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition {% if request.resolver_match.view_name == 'slangwords.index' %}bg-blue-700{% endif %}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9"/>
+        </svg>
+        Slangwords
+      </a>
+    </li>
+
+    <!-- Evaluasi -->
+    <li>
+      <a href="#" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6m4 6V7m4 10V4"/>
+        </svg>
+        Evaluasi
+      </a>
+    </li>
+
+    <!-- Hasil -->
+    <li>
+      <a href="#" 
+         class="flex items-center gap-3 py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Hasil
+      </a>
+    </li>
+  </ul>
+
+  <!-- Logout -->
+  <div class="p-4 border-t border-blue-500">
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="flex items-center justify-center gap-2 w-full py-2 px-4 rounded-lg bg-red-500 hover:bg-red-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7"/>
+        </svg>
+        Logout
+      </button>
+    </form>
+  </div>
+</aside>

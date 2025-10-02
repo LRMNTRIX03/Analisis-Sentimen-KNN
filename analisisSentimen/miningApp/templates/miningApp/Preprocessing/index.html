@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+
+{% block main %}
+
+<div class="max-w-full mx-auto py-8 px-4">
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Preprocessing</h1>
+
+
+<form action="" method="post" class="mb-4">
+    {% csrf_token %}
+    <button type="submit" 
+        class="w-full block px-6 py-4 text-white bg-blue-600 hover:bg-blue-700 transition rounded-lg font-semibold">
+        Proses
+    </button>
+</form>
+
+
+<div class="overflow-x-auto shadow-md rounded-lg">
+    <table class="min-w-full border text-sm text-left text-gray-700">
+        <thead class="bg-blue-600 text-white">
+            <tr>
+                <th class="px-3 py-2">No</th>
+                <th class="px-3 py-2">Teks Asli</th>
+                <th class="px-3 py-2">Case Folding</th>
+                <th class="px-3 py-2">Regex</th>
+                <th class="px-3 py-2">Symbol Removal</th>
+                <th class="px-3 py-2">Tokenisasi</th>
+                <th class="px-3 py-2">Slangword</th>
+                <th class="px-3 py-2">Stopword</th>
+                <th class="px-3 py-2">Stemming</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-50 transition">
+                <td class="px-3 py-2 font-semibold text-center">{{ forloop.counter }}</td>
+                <td class="px-3 py-2 max-w-xs truncate" title="{{ item.teks_asli }}">{{ item.teks_asli }}</td>
+                <td class="px-3 py-2">{{ item.hasil.case_folding }}</td>
+                <td class="px-3 py-2">{{ item.hasil.regex }}</td>
+                <td class="px-3 py-2">{{ item.hasil.symbol_removal }}</td>
+                <td class="px-3 py-2">{{ item.hasil.tokenisasi }}</td>
+                <td class="px-3 py-2">{{ item.hasil.slangword }}</td>
+                <td class="px-3 py-2">{{ item.hasil.stopword }}</td>
+                <td class="px-3 py-2">{{ item.hasil.stemming }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="10" class="text-center px-3 py-4 text-gray-500">Belum ada data</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+</div>
+
+{% endblock %}

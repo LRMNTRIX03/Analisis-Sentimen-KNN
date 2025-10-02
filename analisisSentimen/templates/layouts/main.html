@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="grid grid-cols-12 w-full h-screen">
+   
+    <div class="col-span-3 bg-blue-600 text-white">
+        {% include 'components/sidebar.html' %}
+    </div>
+
+    
+    <div class="col-span-9 p-6">
+        {% block main %}
+        
+        {% endblock %}
+    </div>
+</main>
+{% endblock %}
